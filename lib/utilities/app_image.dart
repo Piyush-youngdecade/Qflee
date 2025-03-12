@@ -142,4 +142,6 @@ class AppImage {
 
 
    static const addPlusIcon = './assets/icons/icon_addPlus.png';
+   static const qfleeImage = './assets/icons/qflee_image.png';
+   static const shareQrImage = './assets/icons/share_qr_icon.png';
 }

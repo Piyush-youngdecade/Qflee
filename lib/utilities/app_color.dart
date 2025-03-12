@@ -66,6 +66,8 @@ class AppColor {
   static const Color lightThemeColor = Color(0xffE9F0FF);
   static const Color darkishYellowColor = Color(0xffC5AD14);
   static const Color silverColor2 = Color(0xff525252);
+  static const Color lightishGreenColor = Color(0xff6C8075);
+  static const Color lightishColor = Color.fromRGBO(239, 255, 247, 1);
   static const Color transparentColors = Colors.transparent;
   static const LinearGradient lightishYellowGradientColor = LinearGradient(
     begin: Alignment.topCenter,
@@ -81,6 +83,14 @@ class AppColor {
     colors: <Color>[
       Color(0xffD2E1FF),
       AppColor.secondaryColor,
+    ],
+  );
+  static const LinearGradient darkishGradientColor = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: <Color>[
+      Color(0xff88A293),
+      Color(0xff323C36),
     ],
   );
 }

@@ -358,9 +358,9 @@ class AppLanguage {
   static const selectYourGroupTypeText = ["Select Your Group Type"];
   static const groupSchedulingForAFamilyText = ["Group Scheduling for a Family"];
   static const groupSchedulingForATeamText = ["Group Scheduling for a Team"];
-  // static const Text = [""];
-  // static const Text = [""];
-  // static const Text = [""];
+  static const trackYourStanderText = ["Track your Stander queue"];
+  static const showThisQrText = ["Show this QR code to the restaurant"];
+  static const shareText = ["Share"];
   // static const Text = [""];
   // static const Text = [""];
 }

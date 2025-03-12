@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import '../../utilities/app_button.dart';
 import '../../utilities/app_color.dart';
 import '../../utilities/app_constant.dart';
@@ -8,6 +7,7 @@ import '../../utilities/app_font.dart';
 import '../../utilities/app_header.dart';
 import '../../utilities/app_language.dart';
 import '../../utilities/app_image.dart';
+import 'qflee_restaurant_qrcode.dart';
 
 class QfleeResturant extends StatefulWidget {
   static String routeName = './QfleeResturant';
@@ -177,7 +177,6 @@ class _QfleeResturantState extends State<QfleeResturant> {
        "groupType": AppLanguage.groupSchedulingForATeamText[language]
     }
   ]; 
- 
  
   @override
   Widget build(BuildContext context) {
@@ -377,42 +376,49 @@ class _QfleeResturantState extends State<QfleeResturant> {
                                   child: Wrap(
                                   runSpacing: 20.0,
                                     children: List.generate(normalList.length, (index) {
-                                      return Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text(normalList[index]['position'],
-                                                style: TextStyle(
-                                                  color: normalList[index]['position'] == "You"?
-                                                   AppColor.themeColor : AppColor.primaryColor,
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontFamily: AppFont.fontFamily
-                                                ),),
-                                              Text(AppLanguage.qrCodeText[language],
-                                                style: TextStyle(
-                                                  color: AppColor.silverColor2,
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontFamily: AppFont.fontFamily
-                                                ),),
-                                            ],
-                                          ),
-                                          Text(normalList[index]['status'],
-                                              style: TextStyle(
-                                                  color:
-                                                  normalList[index]['status'] == "Completed"?
-                                                   AppColor.hintTextinputColor :  normalList[index]['status'] == "In Progress"?
-                                                   AppColor.darkishYellowColor.withOpacity(0.9) : normalList[index]['status'] == "Waiting"?
-                                                   AppColor.yellowColor : AppColor.greenColor,
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontFamily: AppFont.fontFamily
-                                              ),
+                                      return GestureDetector(
+                                        onTap: () {
+                                         if(normalList[index]['position'] == "You"){
+                                          Navigator.push(context, MaterialPageRoute(builder: (context) => const QfleeResturantQRCodeShare()));
+                                         }
+                                        },
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(normalList[index]['position'],
+                                                  style: TextStyle(
+                                                    color: normalList[index]['position'] == "You"?
+                                                     AppColor.themeColor : AppColor.primaryColor,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w500,
+                                                    fontFamily: AppFont.fontFamily
+                                                  ),),
+                                                Text(AppLanguage.qrCodeText[language],
+                                                  style: TextStyle(
+                                                    color: AppColor.silverColor2,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w500,
+                                                    fontFamily: AppFont.fontFamily
+                                                  ),),
+                                              ],
                                             ),
-                                        ],
+                                            Text(normalList[index]['status'],
+                                                style: TextStyle(
+                                                    color:
+                                                    normalList[index]['status'] == "Completed"?
+                                                     AppColor.hintTextinputColor :  normalList[index]['status'] == "In Progress"?
+                                                     AppColor.darkishYellowColor.withOpacity(0.9) : normalList[index]['status'] == "Waiting"?
+                                                     AppColor.yellowColor : AppColor.greenColor,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w500,
+                                                    fontFamily: AppFont.fontFamily
+                                                ),
+                                              ),
+                                          ],
+                                        ),
                                       );
                                     }),
                                   ),

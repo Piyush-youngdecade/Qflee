@@ -8,6 +8,7 @@ import '../view/authentication/notification_screen.dart';
 import '../view/authentication/otp_verify_screen.dart';
 import '../view/authentication/signup_screen.dart';
 import '../view/content_screen/content_screen.dart';
+import '../view/other_screen/qflee_resturant.dart';
 
 final Map<String, WidgetBuilder> routes = {
   Signup.routeName: (context) => const Signup(),
@@ -15,12 +16,11 @@ final Map<String, WidgetBuilder> routes = {
   OTP.routeName: (context) => const OTP(),
   ForgetPasswordOtpVerify.routeName: (context) =>
       const ForgetPasswordOtpVerify(),
-
   Content.routeName: (context) => const Content(),
   NotificationScreen.routeName: (context) => const NotificationScreen(),
   DeleteAccount.routeName: (context) => const DeleteAccount(),
   ChangePassword.routeName: (context) => const ChangePassword(),
   ForgotPassword.routeName: (context) => const ForgotPassword(),
-
-
+  
+  QfleeResturant.routeName: (context) => const QfleeResturant(),
 };
