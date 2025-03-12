@@ -89,8 +89,8 @@ class _CustomPasswordTextFormFieldState
                     height: MediaQuery.of(context).size.width * 5 / 100,
                     child: Image.asset(
                       passwordVisible
-                          ? AppImage.showEyeIcon
-                          : AppImage.hideEyeIcon,
+                          ? AppImage.hidePassword
+                          : AppImage.showPassword,
                     ),
                   ),
                 ),

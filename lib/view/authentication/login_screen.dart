@@ -1,13 +1,16 @@
 // ignore_for_file: sized_box_for_whitespace, deprecated_member_use, prefer_typing_uninitialized_variables, prefer_interpolation_to_compose_strings
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import '../../utilities/app_button.dart';
 import '../../utilities/app_color.dart';
 import '../../utilities/app_constant.dart';
 import '../../utilities/app_font.dart';
+import '../../utilities/app_footer.dart';
 import '../../utilities/app_image.dart';
 import '../../utilities/app_language.dart';
 import '../../utilities/custom_input.dart';
+import 'signup_screen.dart';
 
 class Login extends StatefulWidget {
   static String routeName = "./Login";
@@ -96,26 +99,26 @@ class _LoginState extends State<Login> {
                                       Container(
                                         width:
                                             MediaQuery.of(context).size.width *
-                                                5 /
+                                                7 /
                                                 100,
                                         height:
                                             MediaQuery.of(context).size.width *
-                                                5 /
+                                                7 /
                                                 100,
-                                        child:
-                                            Image.asset(AppImage.aboutUsIcon),
+                                        child: Image.asset(
+                                            AppImage.normalQueueIcon),
                                       ),
-                                      SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              1 /
-                                              100),
+                                      // SizedBox(
+                                      //     width: MediaQuery.of(context)
+                                      //             .size
+                                      //             .width *
+                                      //         1 /
+                                      //         100),
                                       Text(
                                         AppLanguage.normalText[language],
                                         style: TextStyle(
                                             color: AppColor.grayColor,
-                                            fontSize: 14,
+                                            fontSize: 12,
                                             fontWeight: FontWeight.w500,
                                             fontFamily: AppFont.fontFamily),
                                       ),
@@ -123,10 +126,10 @@ class _LoginState extends State<Login> {
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              1 /
+                                              2 /
                                               100),
                                       Container(
-                                        color: AppColor.grayColor,
+                                        color: AppColor.lightBorderColor,
                                         width:
                                             MediaQuery.of(context).size.width *
                                                 0.2 /
@@ -145,26 +148,26 @@ class _LoginState extends State<Login> {
                                       Container(
                                         width:
                                             MediaQuery.of(context).size.width *
-                                                5 /
+                                                7 /
                                                 100,
                                         height:
                                             MediaQuery.of(context).size.width *
-                                                5 /
+                                                7 /
                                                 100,
-                                        child:
-                                            Image.asset(AppImage.aboutUsIcon),
+                                        child: Image.asset(
+                                            AppImage.premiumQueueIcon),
                                       ),
-                                      SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              1 /
-                                              100),
+                                      // SizedBox(
+                                      //     width: MediaQuery.of(context)
+                                      //             .size
+                                      //             .width *
+                                      //         1 /
+                                      //         100),
                                       Text(
-                                        AppLanguage.normalText[language],
+                                        AppLanguage.premiumText[language],
                                         style: TextStyle(
                                             color: AppColor.grayColor,
-                                            fontSize: 14,
+                                            fontSize: 12,
                                             fontWeight: FontWeight.w500,
                                             fontFamily: AppFont.fontFamily),
                                       ),
@@ -172,10 +175,10 @@ class _LoginState extends State<Login> {
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              1 /
+                                              2 /
                                               100),
                                       Container(
-                                        color: AppColor.grayColor,
+                                        color: AppColor.lightBorderColor,
                                         width:
                                             MediaQuery.of(context).size.width *
                                                 0.2 /
@@ -194,26 +197,26 @@ class _LoginState extends State<Login> {
                                       Container(
                                         width:
                                             MediaQuery.of(context).size.width *
-                                                5 /
+                                                7 /
                                                 100,
                                         height:
                                             MediaQuery.of(context).size.width *
-                                                5 /
+                                                7 /
                                                 100,
-                                        child:
-                                            Image.asset(AppImage.aboutUsIcon),
+                                        child: Image.asset(
+                                            AppImage.groupQueueIcon),
                                       ),
-                                      SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              1 /
-                                              100),
+                                      // SizedBox(
+                                      //     width: MediaQuery.of(context)
+                                      //             .size
+                                      //             .width *
+                                      //         1 /
+                                      //         100),
                                       Text(
-                                        AppLanguage.normalText[language],
+                                        AppLanguage.groupText[language],
                                         style: TextStyle(
                                             color: AppColor.grayColor,
-                                            fontSize: 14,
+                                            fontSize: 12,
                                             fontWeight: FontWeight.w500,
                                             fontFamily: AppFont.fontFamily),
                                       ),
@@ -258,7 +261,58 @@ class _LoginState extends State<Login> {
                                       100),
                               AppButton(
                                   text: AppLanguage.nextText[language],
-                                  onPress: () {}),
+                                  onPress: () {
+                                    setState(() {
+                                      AppConstant.selectFooterIndex = 0;
+                                    });
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                MyFooterPage()));
+                                  }),
+                              SizedBox(
+                                  height: MediaQuery.of(context).size.height *
+                                      3 /
+                                      100),
+                              Container(
+                                alignment: Alignment.center,
+                                width: MediaQuery.of(context).size.width *
+                                    80 /
+                                    100,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      AppLanguage.dontAccountText[language] +
+                                          " ",
+                                      style: TextStyle(
+                                          color: AppColor.primaryColor,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: AppFont.fontFamily),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Signup()));
+                                      },
+                                      child: Text(
+                                        AppLanguage.createAccountText[language],
+                                        style: TextStyle(
+                                            color: AppColor.themeColor,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600,
+                                            fontFamily: AppFont.fontFamily),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                           
+                           
                               SizedBox(
                                   height: MediaQuery.of(context).size.height *
                                       12 /
@@ -272,13 +326,13 @@ class _LoginState extends State<Login> {
                                   children: [
                                     Container(
                                       width: MediaQuery.of(context).size.width *
-                                          5 /
+                                          4.5 /
                                           100,
                                       height:
                                           MediaQuery.of(context).size.width *
-                                              5 /
+                                              4.5 /
                                               100,
-                                      child: Image.asset(AppImage.aboutUsIcon),
+                                      child: Image.asset(AppImage.swapIcon),
                                     ),
                                     SizedBox(
                                         width:
@@ -288,7 +342,7 @@ class _LoginState extends State<Login> {
                                     Text(
                                       AppLanguage.swapText[language],
                                       style: TextStyle(
-                                          color: AppColor.themeColor,
+                                          color: AppColor.darkBlueColor,
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: AppFont.fontFamily),

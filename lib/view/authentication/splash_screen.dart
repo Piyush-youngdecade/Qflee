@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:qflee/utilities/app_image.dart';
 import '../../utilities/app_color.dart';
 import 'login_screen.dart';
 
@@ -37,6 +38,10 @@ class _SplashState extends State<Splash> {
           height: MediaQuery.of(context).size.height * 100 / 100,
           color: AppColor.themeColor,
           alignment: Alignment.center,
+          child: Image.asset(
+            AppImage.splashImage,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

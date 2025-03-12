@@ -21,10 +21,10 @@ class AppConstant {
   static var deviceType = Platform.isAndroid ? 'android' : 'ios';
 
   static const TextStyle textFilledStyle = TextStyle(
-      color: AppColor.textColor,
+      color: AppColor.hintTextinputColor,
       fontFamily: AppFont.fontFamily,
-      fontWeight: FontWeight.w500,
-      fontSize: 14);
+      fontWeight: FontWeight.w400,
+      fontSize: 15);
 
   static const TextStyle textHeadingStyle = TextStyle(
       fontFamily: AppFont.fontFamily,

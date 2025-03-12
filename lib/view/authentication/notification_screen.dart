@@ -15,36 +15,64 @@ class NotificationScreen extends StatefulWidget {
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
-  List<dynamic> notificationList = [
+  List<dynamic> notificationList = <dynamic>[
     {
       'id': 1,
-      "name": "Kam Davis.",
-      "time": "2min",
-      "stuats": "is Live",
-      "userProfile": "./assets/icons/userProfile1.jpg",
+      "type": "Queue Update",
+      "details":
+          "Your table is almost ready - estimated wait time : 10 minutes.",
+      "time": "23-03-2025",
     },
     {
       'id': 2,
-      "name": "Jakob Majors.",
-      "time": "20min",
-      "stuats": "upload Post",
-      "userProfile": "./assets/icons/userProfile4.jpg",
+      "type": "Swap Request",
+      "details": "Rahul has offered to swap positions with you. Check details!",
+      "time": "24-02-2025",
     },
     {
       'id': 3,
-      "name": "Dan Jack.",
-      "time": "1hr",
-      "stuats": "mentioned Comment",
-      "userProfile": "./assets/icons/userProfile3.jpg",
+      "type": "Offer Alert",
+      "details":
+          "Special discount available for priority queue access. Tap for more info.",
+      "time": "20-01-2025",
     },
     {
       'id': 4,
-      "name": "Dior Davis ",
-      "time": "3hr",
-      "stuats": "and 40 other like your post",
-      "userProfile": "./assets/icons/userProfile5.jpg",
+      "type": "Payment Confirmation",
+      "details": "Your swap fee of ₹500 has been successfully processed.",
+      "time": "21-02-2025",
+    },
+    {
+      'id': 5,
+      "type": "Queue Update",
+      "details":
+          "Your table is almost ready - estimated wait time : 10 minutes.",
+      "time": "23-03-2025",
+    },
+    {
+      'id': 6,
+      "type": "Swap Request",
+      "details": "Rahul has offered to swap positions with you. Check details!",
+      "time": "24-02-2025",
+    },
+    {
+      'id': 7,
+      "type": "Offer Alert",
+      "details":
+          "Special discount available for priority queue access. Tap for more info.",
+      "time": "20-01-2025",
+    },
+    {
+      'id': 8,
+      "type": "Payment Confirmation",
+      "details": "Your swap fee of ₹500 has been successfully processed.",
+      "time": "21-02-2025",
     },
   ];
+
+
+
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -110,148 +138,103 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       return Column(
                         children: [
                           Container(
-                            width: MediaQuery.of(context).size.width * 92 / 100,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  color: AppColor.textinputBorderColor,
-                                )),
+                            width: MediaQuery.of(context).size.width * 90 / 100,
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height *
-                                      2 /
-                                      100,
-                                ),
-                                Container(
-                                  width: MediaQuery.of(context).size.width *
-                                      86 /
-                                      100,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(100),
-                                        child: Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              11 /
-                                              100,
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              11 /
-                                              100,
-                                          child: Image.asset(
-                                            notificationList[index]
-                                                ["userProfile"],
-                                            fit: BoxFit.cover,
-                                          ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(100),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                10 /
+                                                100,
+                                        height:
+                                            MediaQuery.of(context).size.width *
+                                                10 /
+                                                100,
+                                        child: Image.asset(
+                                          AppImage.notificationIcon,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
-                                      SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                2 /
-                                                100,
-                                      ),
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                72 /
-                                                100,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  notificationList[index]
-                                                      ["name"],
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                      color:
-                                                          AppColor.primaryColor,
-                                                      fontFamily:
-                                                          AppFont.fontFamily,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontSize: 12),
-                                                ),
-                                                Text(
-                                                  notificationList[index]
-                                                      ["stuats"],
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                      color: AppColor.textColor,
-                                                      fontFamily:
-                                                          AppFont.fontFamily,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      fontSize: 12),
-                                                ),
-                                                if (notificationList[index]
-                                                        ["id"] ==
-                                                    3)
-                                                  Text(
-                                                    "Kam Davis",
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        color: AppColor
-                                                            .primaryColor,
-                                                        fontFamily:
-                                                            AppFont.fontFamily,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontSize: 12),
-                                                  ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.5 /
-                                                  100,
-                                            ),
-                                            Text(
-                                              notificationList[index]["time"],
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          2 /
+                                          100,
+                                    ),
+                                    Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          72 /
+                                          100,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text.rich(
+                                              //  textAlign: TextAlign.center,
+                                              TextSpan(children: [
+                                            TextSpan(
+                                              text: notificationList[index]
+                                                      ["type"] +
+                                                  " : ",
                                               style: TextStyle(
-                                                  color: AppColor.textColor,
+                                                  color: AppColor.primaryColor,
                                                   fontFamily:
                                                       AppFont.fontFamily,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 12),
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 13),
                                             ),
-                                            SizedBox(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.2 /
-                                                  100,
+                                            TextSpan(
+                                              text: notificationList[index]
+                                                  ["details"],
+                                              style: const TextStyle(
+                                                  color: AppColor.primaryColor,
+                                                  fontFamily:
+                                                      AppFont.fontFamily,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 13),
                                             ),
-                                          ],
-                                        ),
+                                          ])),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                notificationList[index]["time"],
+                                                style: TextStyle(
+                                                    color: AppColor.grayColor,
+                                                    fontFamily:
+                                                        AppFont.fontFamily,
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 10),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                2 /
+                                                100,
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height *
-                                      2 /
-                                      100,
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 90 / 100,
+                            height:
+                                MediaQuery.of(context).size.height * 0.1 / 100,
+                            color: AppColor.grayColor,
                           ),
                           SizedBox(
                             height:
@@ -260,6 +243,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                         ],
                       );
                     })),
+               
+               
+               
                   ],
                 ),
               ),

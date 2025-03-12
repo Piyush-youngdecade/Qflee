@@ -15,46 +15,37 @@ class AppHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-     SizedBox(
-      height: MediaQuery.of(context).size.height * 7 / 100,
+    return Container(
       width: MediaQuery.of(context).size.width * 90 / 100,
+      margin: EdgeInsets.symmetric(vertical: 7),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
             onTap: () {
               onPress();
             },
-            child:
-             Container(
-              height: MediaQuery.of(context).size.width * 5 / 100,
-              width: MediaQuery.of(context).size.width * 5 / 100,
+            child: Container(
+              height: MediaQuery.of(context).size.width * 6 / 100,
+              width: MediaQuery.of(context).size.width * 6 / 100,
               child: Image.asset(
-                AppImage.navigateBackIcon,
+                AppImage.backIcon,
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SizedBox(
-            height: MediaQuery.of(context).size.width * 4 / 100,
-            width: MediaQuery.of(context).size.width * 4 / 100,
-          ),
           Text(text,
               style: const TextStyle(
                   color: AppColor.primaryColor,
-                  fontSize: 18,
+                  fontSize: 20,
                   fontWeight: FontWeight.w600,
                   fontFamily: AppFont.fontFamily)),
-          SizedBox(
-            height: MediaQuery.of(context).size.width * 5 / 100,
-            width: MediaQuery.of(context).size.width * 5 / 100,
+          Container(
+            height: MediaQuery.of(context).size.width * 7 / 100,
+            width: MediaQuery.of(context).size.width * 7 / 100,
           ),
         ],
       ),
     );
-  
-  
-  
   }
 }

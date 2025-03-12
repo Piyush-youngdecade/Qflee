@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import '../../utilities/app_button.dart';
 import '../../utilities/app_color.dart';
 import '../../utilities/app_constant.dart';
+import '../../utilities/app_font.dart';
 import '../../utilities/app_header.dart';
 import '../../utilities/app_image.dart';
 import '../../utilities/app_language.dart';
+import '../../utilities/custom_input.dart';
 
 class ContactUs extends StatefulWidget {
   static String routeName = "./ContactUs";
@@ -41,117 +44,185 @@ class _ContactUsState extends State<ContactUs> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 2 / 100,
                     ),
-                    Column(
-                      children: [
-                        SizedBox(
-                            height:
-                                MediaQuery.of(context).size.height * 2 / 100),
+                    Expanded(
+                      flex: 1,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                                height: MediaQuery.of(context).size.height *
+                                    2 /
+                                    100),
+                            Container(
+                              width:
+                                  MediaQuery.of(context).size.width * 90 / 100,
+                              child: Text(
+                                AppLanguage.nameInputText[language],
+                                style: TextStyle(
+                                  color: AppColor.primaryColor,
+                                  fontFamily: AppFont.fontFamily,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                                height: MediaQuery.of(context).size.height *
+                                    1 /
+                                    100),
+                            // -----------first Number -------------
+                            CustomTextFormField(
+                              controller: nameTextEditingController,
+                              image: AppImage.userNameIcon,
+                              hintText: AppLanguage.enterNameText[language],
+                              keyboardtype: TextInputType.name,
+                              maxLength: AppConstant.firstnameLength,
+                              fillColorStatus: 0,
+                              readOnly: false,
+                            ),
 
-                        // -----------first Number -------------
-                        // CustomInputTextFormField(
-                        //     readOnly: false,
-                        //     fillColorStatus: 0,
-                        //     controller: nameTextEditingController,
-                        //     hintText: AppLanguage.nameInputText[language],
-                        //     image: AppImage.userNameIcon,
-                        //     keyboardtype: TextInputType.name,
-                        //     maxLength: AppConstant.fullnameLength),
+                            SizedBox(
+                                height: MediaQuery.of(context).size.height *
+                                    1.5 /
+                                    100),
+                            Container(
+                              width:
+                                  MediaQuery.of(context).size.width * 90 / 100,
+                              child: Text(
+                                AppLanguage.emailInputText[language],
+                                style: TextStyle(
+                                  color: AppColor.primaryColor,
+                                  fontFamily: AppFont.fontFamily,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                                height: MediaQuery.of(context).size.height *
+                                    1 /
+                                    100),
+                            // ----------- email Input -------------
+                            CustomTextFormField(
+                              controller: emailTextEditingController,
+                              image: AppImage.emailIcon,
+                              hintText: AppLanguage.enterEmailText[language],
+                              keyboardtype: TextInputType.name,
+                              maxLength: AppConstant.firstnameLength,
+                              fillColorStatus: 0,
+                              readOnly: false,
+                            ),
+                            SizedBox(
+                                height: MediaQuery.of(context).size.height *
+                                    1.5 /
+                                    100),
+                            Container(
+                              width:
+                                  MediaQuery.of(context).size.width * 90 / 100,
+                              child: Text(
+                                AppLanguage.descriptionText[language],
+                                style: TextStyle(
+                                  color: AppColor.primaryColor,
+                                  fontFamily: AppFont.fontFamily,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                                height: MediaQuery.of(context).size.height *
+                                    1 /
+                                    100),
 
-                        // SizedBox(
-                        //     height:
-                        //         MediaQuery.of(context).size.height * 1.5 / 100),
-
-                        // // ----------- email Input -------------
-                        // CustomInputTextFormField(
-                        //     readOnly: false,
-                        //     fillColorStatus: 0,
-                        //     controller: emailTextEditingController,
-                        //     hintText: AppLanguage.emailInputText[language],
-                        //     image: AppImage.emailcon,
-                        //     keyboardtype: TextInputType.emailAddress,
-                        //     maxLength: AppConstant.emailMaxLength),
-                        // SizedBox(
-                        //     height:
-                        //         MediaQuery.of(context).size.height * 3 / 100),
-
-                        // ----------- Message Input -------------
-                        Container(
-                          width: MediaQuery.of(context).size.width * 90 / 100,
-                          child: TextFormField(
-                            style:
-                                TextStyle(height: 1, color: AppColor.textColor),
-                            keyboardType: TextInputType.multiline,
-                            controller: messageTextEditingController,
-                            maxLines: 7,
-                            maxLength: AppConstant.describeLength,
-                            decoration: InputDecoration(
-                                prefixIcon: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      height:
-                                          MediaQuery.of(context).size.width *
+                            // ----------- Message Input -------------
+                            Container(
+                              width:
+                                  MediaQuery.of(context).size.width * 90 / 100,
+                              child: TextFormField(
+                                style: TextStyle(
+                                    height: 1, color: AppColor.textColor),
+                                keyboardType: TextInputType.multiline,
+                                controller: messageTextEditingController,
+                                maxLines: 7,
+                                maxLength: AppConstant.describeLength,
+                                decoration: InputDecoration(
+                                    prefixIcon: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
                                               5 /
                                               100,
-                                      width: MediaQuery.of(context).size.width *
-                                          5 /
-                                          100,
-                                      child: Image.asset(
-                                        AppImage.editIcon,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              5 /
+                                              100,
+                                          child: Image.asset(
+                                            AppImage.editIcon,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
                                                 11 /
                                                 100),
-                                  ],
-                                ),
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: AppColor.textinputBorderColor,
-                                  ),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(11)),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: AppColor.textinputBorderColor,
-                                  ),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(11)),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: AppColor.textinputBorderColor,
-                                  ),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(11)),
-                                ),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 15),
-                                fillColor: AppColor.secondaryColor,
-                                filled: true,
-                                counterText: '',
-                                hintText: AppLanguage.descriptionText[language],
-                                hintStyle: AppConstant.textFilledStyle),
-                          ),
-                        ),
+                                      ],
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: AppColor.textinputBorderColor,
+                                      ),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(11)),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: AppColor.textinputBorderColor,
+                                      ),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(11)),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: AppColor.textinputBorderColor,
+                                      ),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(11)),
+                                    ),
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        vertical: 20, horizontal: 15),
+                                    fillColor: AppColor.secondaryColor,
+                                    filled: true,
+                                    counterText: '',
+                                    hintText:
+                                        AppLanguage.descriptionText[language],
+                                    hintStyle: AppConstant.textFilledStyle),
+                              ),
+                            ),
 
-                        SizedBox(
-                            height:
-                                MediaQuery.of(context).size.height * 5 / 100),
-                        AppButton(
-                            text: AppLanguage.submitButtonText[language],
-                            onPress: () {
-                              Navigator.pop(
-                                context,
-                              );
-                            }),
-                        SizedBox(
-                            height:
-                                MediaQuery.of(context).size.height * 5 / 100),
-                      ],
+                            SizedBox(
+                                height: MediaQuery.of(context).size.height *
+                                    8 /
+                                    100),
+                            AppButton(
+                                text: AppLanguage.submitButtonText[language],
+                                onPress: () {
+                                  Navigator.pop(
+                                    context,
+                                  );
+                                }),
+                            SizedBox(
+                                height: MediaQuery.of(context).size.height *
+                                    5 /
+                                    100),
+                          ],
+                        ),
+                      ),
                     )
                   ])))),
     );
